@@ -21,7 +21,7 @@ info:
 # host: localhost:8080
 ## basePath is the URL prefix for all API paths, relative to the host root. It must start with a leading slash /. 
 ## If basePath is not specified, it defaults to /, that is, all paths start at the host root.
-#basePath: /v1
+basePath: /v1
 ## schemes are the transfer protocols used by the API. 
 ## Swagger supports the http, https, and WebSocket schemes – ws and wss. 
 ## As with any lists in YAML, schemes can be specified using the list syntax or the array literal syntax
