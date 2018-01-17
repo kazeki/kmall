@@ -1,0 +1,25 @@
+{
+    "kmallApp": {
+        "category" : {
+            "home": {
+                "title": "Categories",
+                "createLabel": "Category を追加",
+                "createOrEditLabel": "Categoryを追加または編集",
+                "search": "Search for Category"
+            },
+            "created": "A new Category is created with identifier {{ param }}",
+            "updated": "A Category is updated with identifier {{ param }}",
+            "deleted": "A Category is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Category {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Category"
+            },
+            "name": "Name",
+            "description": "Description",
+            "enabled": "Enabled",
+            "parent": "Parent"
+        }
+    }
+}

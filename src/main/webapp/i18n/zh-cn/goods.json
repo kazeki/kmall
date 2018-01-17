@@ -1,0 +1,25 @@
+{
+    "kmallApp": {
+        "goods" : {
+            "home": {
+                "title": "Goods",
+                "createLabel": "创建新 Goods",
+                "createOrEditLabel": "创建或编辑 Goods",
+                "search": "查找 Goods"
+            },
+            "created": "Goods {{ param }} 创建成功",
+            "updated": "Goods {{ param }} 更新成功",
+            "deleted": "Goods {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Goods {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Goods"
+            },
+            "name": "Name",
+            "description": "Description",
+            "shop": "Shop",
+            "createBy": "Create By"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "kmallApp": {
+        "goods" : {
+            "home": {
+                "title": "Goods",
+                "createLabel": "Create a new Goods",
+                "createOrEditLabel": "Create or edit a Goods",
+                "search": "Search for Goods"
+            },
+            "created": "A new Goods is created with identifier {{ param }}",
+            "updated": "A Goods is updated with identifier {{ param }}",
+            "deleted": "A Goods is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Goods {{ id }}?"
+            },
+            "detail": {
+                "title": "Goods"
+            },
+            "name": "Name",
+            "description": "Description",
+            "shop": "Shop",
+            "createBy": "Create By"
+        }
+    }
+}

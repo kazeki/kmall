@@ -1,0 +1,24 @@
+{
+    "kmallApp": {
+        "shop" : {
+            "home": {
+                "title": "Shops",
+                "createLabel": "Shop を追加",
+                "createOrEditLabel": "Shopを追加または編集",
+                "search": "Search for Shop"
+            },
+            "created": "A new Shop is created with identifier {{ param }}",
+            "updated": "A Shop is updated with identifier {{ param }}",
+            "deleted": "A Shop is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Shop {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Shop"
+            },
+            "name": "Name",
+            "description": "Description",
+            "master": "Master"
+        }
+    }
+}
