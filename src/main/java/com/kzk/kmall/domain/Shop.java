@@ -27,7 +27,8 @@ public class Shop implements Serializable {
     @Column(name = "name", length = 20, nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @Size(max = 200)
+    @Column(name = "description", length = 200)
     private String description;
 
     @ManyToOne(optional = false)

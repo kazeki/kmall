@@ -25,13 +25,17 @@
         },
         {
             "fieldName": "description",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
         }
     ],
     "changelogDate": "20180117054048",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "shop",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "pagination": "pager"
 }

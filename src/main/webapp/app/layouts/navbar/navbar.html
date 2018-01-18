@@ -147,6 +147,12 @@
                                 <span data-translate="global.menu.admin.apidocs">API</span>
                             </a>
                         </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="elasticsearch-reindex" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;
+                                <span data-translate="global.menu.admin.elasticsearch-reindex">Elasticsearch Reindex</span>
+                            </a>
+                        </li>
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                         <li ng-hide="vm.inProduction">
                             <a href='/h2-console' target="_tab" ng-click="vm.collapseNavbar()">

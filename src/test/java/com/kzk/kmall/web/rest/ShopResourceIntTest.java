@@ -8,6 +8,8 @@ import com.kzk.kmall.repository.ShopRepository;
 import com.kzk.kmall.service.ShopService;
 import com.kzk.kmall.repository.search.ShopSearchRepository;
 import com.kzk.kmall.web.rest.errors.ExceptionTranslator;
+import com.kzk.kmall.service.dto.ShopCriteria;
+import com.kzk.kmall.service.ShopQueryService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -57,6 +59,9 @@ public class ShopResourceIntTest {
     private ShopSearchRepository shopSearchRepository;
 
     @Autowired
+    private ShopQueryService shopQueryService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -75,7 +80,7 @@ public class ShopResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ShopResource shopResource = new ShopResource(shopService);
+        final ShopResource shopResource = new ShopResource(shopService, shopQueryService);
         this.restShopMockMvc = MockMvcBuilders.standaloneSetup(shopResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -196,6 +201,126 @@ public class ShopResourceIntTest {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
     }
+
+    @Test
+    @Transactional
+    public void getAllShopsByNameIsEqualToSomething() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where name equals to DEFAULT_NAME
+        defaultShopShouldBeFound("name.equals=" + DEFAULT_NAME);
+
+        // Get all the shopList where name equals to UPDATED_NAME
+        defaultShopShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByNameIsInShouldWork() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where name in DEFAULT_NAME or UPDATED_NAME
+        defaultShopShouldBeFound("name.in=" + DEFAULT_NAME + "," + UPDATED_NAME);
+
+        // Get all the shopList where name equals to UPDATED_NAME
+        defaultShopShouldNotBeFound("name.in=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByNameIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where name is not null
+        defaultShopShouldBeFound("name.specified=true");
+
+        // Get all the shopList where name is null
+        defaultShopShouldNotBeFound("name.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByDescriptionIsEqualToSomething() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where description equals to DEFAULT_DESCRIPTION
+        defaultShopShouldBeFound("description.equals=" + DEFAULT_DESCRIPTION);
+
+        // Get all the shopList where description equals to UPDATED_DESCRIPTION
+        defaultShopShouldNotBeFound("description.equals=" + UPDATED_DESCRIPTION);
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByDescriptionIsInShouldWork() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where description in DEFAULT_DESCRIPTION or UPDATED_DESCRIPTION
+        defaultShopShouldBeFound("description.in=" + DEFAULT_DESCRIPTION + "," + UPDATED_DESCRIPTION);
+
+        // Get all the shopList where description equals to UPDATED_DESCRIPTION
+        defaultShopShouldNotBeFound("description.in=" + UPDATED_DESCRIPTION);
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByDescriptionIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        shopRepository.saveAndFlush(shop);
+
+        // Get all the shopList where description is not null
+        defaultShopShouldBeFound("description.specified=true");
+
+        // Get all the shopList where description is null
+        defaultShopShouldNotBeFound("description.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllShopsByMasterIsEqualToSomething() throws Exception {
+        // Initialize the database
+        User master = UserResourceIntTest.createEntity(em);
+        em.persist(master);
+        em.flush();
+        shop.setMaster(master);
+        shopRepository.saveAndFlush(shop);
+        Long masterId = master.getId();
+
+        // Get all the shopList where master equals to masterId
+        defaultShopShouldBeFound("masterId.equals=" + masterId);
+
+        // Get all the shopList where master equals to masterId + 1
+        defaultShopShouldNotBeFound("masterId.equals=" + (masterId + 1));
+    }
+
+    /**
+     * Executes the search, and checks that the default entity is returned
+     */
+    private void defaultShopShouldBeFound(String filter) throws Exception {
+        restShopMockMvc.perform(get("/api/shops?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(shop.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+    }
+
+    /**
+     * Executes the search, and checks that the default entity is not returned
+     */
+    private void defaultShopShouldNotBeFound(String filter) throws Exception {
+        restShopMockMvc.perform(get("/api/shops?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$").isArray())
+            .andExpect(jsonPath("$").isEmpty());
+    }
+
 
     @Test
     @Transactional

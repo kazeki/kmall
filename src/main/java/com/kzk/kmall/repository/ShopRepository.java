@@ -11,7 +11,7 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface ShopRepository extends JpaRepository<Shop, Long> {
+public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificationExecutor<Shop> {
 
     @Query("select shop from Shop shop where shop.master.login = ?#{principal.username}")
     List<Shop> findByMasterIsCurrentUser();
