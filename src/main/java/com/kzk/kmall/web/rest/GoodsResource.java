@@ -6,6 +6,8 @@ import com.kzk.kmall.service.GoodsService;
 import com.kzk.kmall.web.rest.errors.BadRequestAlertException;
 import com.kzk.kmall.web.rest.util.HeaderUtil;
 import com.kzk.kmall.web.rest.util.PaginationUtil;
+import com.kzk.kmall.service.dto.GoodsCriteria;
+import com.kzk.kmall.service.GoodsQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,8 +41,11 @@ public class GoodsResource {
 
     private final GoodsService goodsService;
 
-    public GoodsResource(GoodsService goodsService) {
+    private final GoodsQueryService goodsQueryService;
+
+    public GoodsResource(GoodsService goodsService, GoodsQueryService goodsQueryService) {
         this.goodsService = goodsService;
+        this.goodsQueryService = goodsQueryService;
     }
 
     /**
@@ -89,13 +94,14 @@ public class GoodsResource {
      * GET  /goods : get all the goods.
      *
      * @param pageable the pagination information
+     * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of goods in body
      */
     @GetMapping("/goods")
     @Timed
-    public ResponseEntity<List<Goods>> getAllGoods(Pageable pageable) {
-        log.debug("REST request to get a page of Goods");
-        Page<Goods> page = goodsService.findAll(pageable);
+    public ResponseEntity<List<Goods>> getAllGoods(GoodsCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get Goods by criteria: {}", criteria);
+        Page<Goods> page = goodsQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/goods");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

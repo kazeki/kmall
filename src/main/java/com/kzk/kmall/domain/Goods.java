@@ -6,6 +6,7 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -31,12 +32,22 @@ public class Goods implements Serializable {
     @Column(name = "description", length = 200)
     private String description;
 
+    @NotNull
+    @DecimalMin(value = "0")
+    @DecimalMax(value = "9999999999")
+    @Column(name = "price", precision=10, scale=2, nullable = false)
+    private BigDecimal price;
+
     @ManyToOne(optional = false)
     @NotNull
     private Shop shop;
 
     @ManyToOne
     private User createBy;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Category category;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -73,6 +84,19 @@ public class Goods implements Serializable {
         this.description = description;
     }
 
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public Goods price(BigDecimal price) {
+        this.price = price;
+        return this;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     public Shop getShop() {
         return shop;
     }
@@ -97,6 +121,19 @@ public class Goods implements Serializable {
 
     public void setCreateBy(User user) {
         this.createBy = user;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Goods category(Category category) {
+        this.category = category;
+        return this;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -126,6 +163,7 @@ public class Goods implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
+            ", price=" + getPrice() +
             "}";
     }
 }

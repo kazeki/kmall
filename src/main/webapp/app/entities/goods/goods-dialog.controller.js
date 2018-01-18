@@ -5,9 +5,9 @@
         .module('kmallApp')
         .controller('GoodsDialogController', GoodsDialogController);
 
-    GoodsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Goods', 'Shop', 'User'];
+    GoodsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Goods', 'Shop', 'User', 'Category'];
 
-    function GoodsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Goods, Shop, User) {
+    function GoodsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Goods, Shop, User, Category) {
         var vm = this;
 
         vm.goods = entity;
@@ -15,6 +15,7 @@
         vm.save = save;
         vm.shops = Shop.query();
         vm.users = User.query();
+        vm.categories = Category.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -42,6 +42,6 @@
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "category",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "pagination": "pagination"
 }

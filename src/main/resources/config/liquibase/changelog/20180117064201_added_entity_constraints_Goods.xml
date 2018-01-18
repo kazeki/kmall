@@ -20,5 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="goods"
+                                 constraintName="fk_goods_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
     </changeSet>
 </databaseChangeLog>

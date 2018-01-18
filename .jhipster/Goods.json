@@ -17,6 +17,15 @@
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "goods"
+        },
+        {
+            "relationshipName": "category",
+            "otherEntityName": "category",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -36,12 +45,23 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "9999999999"
         }
     ],
     "changelogDate": "20180117064201",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "goods",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }

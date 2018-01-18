@@ -11,7 +11,7 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface GoodsRepository extends JpaRepository<Goods, Long> {
+public interface GoodsRepository extends JpaRepository<Goods, Long>, JpaSpecificationExecutor<Goods> {
 
     @Query("select goods from Goods goods where goods.createBy.login = ?#{principal.username}")
     List<Goods> findByCreateByIsCurrentUser();

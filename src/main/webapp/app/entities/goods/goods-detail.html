@@ -12,6 +12,10 @@
         <dd>
             <span>{{vm.goods.description}}</span>
         </dd>
+        <dt><span data-translate="kmallApp.goods.price">Price</span></dt>
+        <dd>
+            <span>{{vm.goods.price}}</span>
+        </dd>
         <dt><span data-translate="kmallApp.goods.shop">Shop</span></dt>
         <dd>
             <a ui-sref="shop-detail({id:vm.goods.shop.id})">{{vm.goods.shop.name}}</a>
@@ -19,6 +23,10 @@
         <dt><span data-translate="kmallApp.goods.createBy">Create By</span></dt>
         <dd>
             {{vm.goods.createBy.login}}
+        </dd>
+        <dt><span data-translate="kmallApp.goods.category">Category</span></dt>
+        <dd>
+            <a ui-sref="category-detail({id:vm.goods.category.id})">{{vm.goods.category.name}}</a>
         </dd>
     </dl>
 

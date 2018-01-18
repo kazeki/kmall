@@ -106,6 +106,7 @@
                             return {
                                 name: null,
                                 description: null,
+                                price: null,
                                 id: null
                             };
                         }

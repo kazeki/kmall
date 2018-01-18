@@ -18,8 +18,10 @@
             },
             "name": "Name",
             "description": "Description",
+            "price": "Price",
             "shop": "Shop",
-            "createBy": "Create By"
+            "createBy": "Create By",
+            "category": "Category"
         }
     }
 }

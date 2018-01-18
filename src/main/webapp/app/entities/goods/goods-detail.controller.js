@@ -5,9 +5,9 @@
         .module('kmallApp')
         .controller('GoodsDetailController', GoodsDetailController);
 
-    GoodsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Goods', 'Shop', 'User'];
+    GoodsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Goods', 'Shop', 'User', 'Category'];
 
-    function GoodsDetailController($scope, $rootScope, $stateParams, previousState, entity, Goods, Shop, User) {
+    function GoodsDetailController($scope, $rootScope, $stateParams, previousState, entity, Goods, Shop, User, Category) {
         var vm = this;
 
         vm.goods = entity;

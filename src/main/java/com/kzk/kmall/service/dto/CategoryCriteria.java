@@ -8,21 +8,21 @@ import io.github.jhipster.service.filter.FloatFilter;
 import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.BigDecimalFilter;
+
 
 
 
 
 
 /**
- * Criteria class for the Goods entity. This class is used in GoodsResource to
+ * Criteria class for the Category entity. This class is used in CategoryResource to
  * receive all the possible filtering options from the Http GET request parameters.
  * For example the following could be a valid requests:
- * <code> /goods?id.greaterThan=5&amp;attr1.contains=something&amp;attr2.specified=false</code>
+ * <code> /categories?id.greaterThan=5&amp;attr1.contains=something&amp;attr2.specified=false</code>
  * As Spring is unable to properly convert the types, unless specific {@link Filter} class are used, we need to use
  * fix type specific filters.
  */
-public class GoodsCriteria implements Serializable {
+public class CategoryCriteria implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -32,15 +32,11 @@ public class GoodsCriteria implements Serializable {
 
     private StringFilter description;
 
-    private BigDecimalFilter price;
+    private IntegerFilter enabled;
 
-    private LongFilter shopId;
+    private LongFilter parentId;
 
-    private LongFilter createById;
-
-    private LongFilter categoryId;
-
-    public GoodsCriteria() {
+    public CategoryCriteria() {
     }
 
     public LongFilter getId() {
@@ -67,48 +63,30 @@ public class GoodsCriteria implements Serializable {
         this.description = description;
     }
 
-    public BigDecimalFilter getPrice() {
-        return price;
+    public IntegerFilter getEnabled() {
+        return enabled;
     }
 
-    public void setPrice(BigDecimalFilter price) {
-        this.price = price;
+    public void setEnabled(IntegerFilter enabled) {
+        this.enabled = enabled;
     }
 
-    public LongFilter getShopId() {
-        return shopId;
+    public LongFilter getParentId() {
+        return parentId;
     }
 
-    public void setShopId(LongFilter shopId) {
-        this.shopId = shopId;
-    }
-
-    public LongFilter getCreateById() {
-        return createById;
-    }
-
-    public void setCreateById(LongFilter createById) {
-        this.createById = createById;
-    }
-
-    public LongFilter getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(LongFilter categoryId) {
-        this.categoryId = categoryId;
+    public void setParentId(LongFilter parentId) {
+        this.parentId = parentId;
     }
 
     @Override
     public String toString() {
-        return "GoodsCriteria{" +
+        return "CategoryCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
                 (name != null ? "name=" + name + ", " : "") +
                 (description != null ? "description=" + description + ", " : "") +
-                (price != null ? "price=" + price + ", " : "") +
-                (shopId != null ? "shopId=" + shopId + ", " : "") +
-                (createById != null ? "createById=" + createById + ", " : "") +
-                (categoryId != null ? "categoryId=" + categoryId + ", " : "") +
+                (enabled != null ? "enabled=" + enabled + ", " : "") +
+                (parentId != null ? "parentId=" + parentId + ", " : "") +
             "}";
     }
 

@@ -133,6 +133,25 @@ public class ShopResource {
         shopService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+    
+    /**
+     * DELETE  /shops : delete all the shops.
+     *
+     * Added by kazeki
+     *
+     * @param criteria the criterias which the requested entities should match
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @DeleteMapping("/shops")
+    @Timed
+    public ResponseEntity<List<Shop>> deleteShops(ShopCriteria criteria) {
+        log.debug("REST request to deleteShops Shops by criteria: {}", criteria);
+        List<Shop> shops = shopQueryService.findByCriteria(criteria);
+        for (Shop shop : shops) {
+			shopService.delete(shop.getId());
+		}
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     /**
      * SEARCH  /_search/shops?query=:query : search for the shop corresponding
