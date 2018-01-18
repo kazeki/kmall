@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Kmall",
+        "title": "Kmall日本",
         "browsehappy": "<strong>古い</strong>ブラウザーが使われています。より良い体験を得るために<a href=\"http://browsehappy.com/?locale=en\">ブラウザをアップデート</a>してください。",
         "menu": {
             "home": "ホーム",
@@ -124,5 +124,5 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{entityName}} cannot already have an ID"
     },
-    "footer": "フッターです"
+    "footer": "Kmall Online powered by Jhipster"
 }
