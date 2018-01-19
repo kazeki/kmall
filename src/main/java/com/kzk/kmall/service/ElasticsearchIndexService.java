@@ -49,6 +49,10 @@ public class ElasticsearchIndexService {
 
     private final ShopSearchRepository shopSearchRepository;
 
+    private final SystemNoticeRepository systemNoticeRepository;
+
+    private final SystemNoticeSearchRepository systemNoticeSearchRepository;
+
     private final UserRepository userRepository;
 
     private final UserSearchRepository userSearchRepository;
@@ -66,6 +70,8 @@ public class ElasticsearchIndexService {
         GoodsSearchRepository goodsSearchRepository,
         ShopRepository shopRepository,
         ShopSearchRepository shopSearchRepository,
+        SystemNoticeRepository systemNoticeRepository,
+        SystemNoticeSearchRepository systemNoticeSearchRepository,
         ElasticsearchTemplate elasticsearchTemplate) {
         this.userRepository = userRepository;
         this.userSearchRepository = userSearchRepository;
@@ -75,6 +81,8 @@ public class ElasticsearchIndexService {
         this.goodsSearchRepository = goodsSearchRepository;
         this.shopRepository = shopRepository;
         this.shopSearchRepository = shopSearchRepository;
+        this.systemNoticeRepository = systemNoticeRepository;
+        this.systemNoticeSearchRepository = systemNoticeSearchRepository;
         this.elasticsearchTemplate = elasticsearchTemplate;
     }
 
@@ -86,6 +94,7 @@ public class ElasticsearchIndexService {
                 reindexForClass(Category.class, categoryRepository, categorySearchRepository);
                 reindexForClass(Goods.class, goodsRepository, goodsSearchRepository);
                 reindexForClass(Shop.class, shopRepository, shopSearchRepository);
+                reindexForClass(SystemNotice.class, systemNoticeRepository, systemNoticeSearchRepository);
                 reindexForClass(User.class, userRepository, userSearchRepository);
 
                 log.info("Elasticsearch: Successfully performed reindexing");

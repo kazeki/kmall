@@ -50,6 +50,12 @@
                                     <span data-translate="global.menu.entities.category">Category</span>
                                 </a>
                             </li>
+                        <li ui-sref-active="active">
+                                <a ui-sref="system-notice" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.systemNotice">System Notice</span>
+                                </a>
+                            </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -151,6 +157,12 @@
                             <a ui-sref="elasticsearch-reindex" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;
                                 <span data-translate="global.menu.admin.elasticsearch-reindex">Elasticsearch Reindex</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="entity-audit" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span data-translate="global.menu.admin.entity-audit">Entity Audit</span>
                             </a>
                         </li>
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->

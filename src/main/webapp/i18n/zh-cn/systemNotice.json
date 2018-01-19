@@ -1,0 +1,24 @@
+{
+    "kmallApp": {
+        "systemNotice" : {
+            "home": {
+                "title": "System Notices",
+                "createLabel": "创建新 System Notice",
+                "createOrEditLabel": "创建或编辑 System Notice",
+                "search": "查找 System Notice"
+            },
+            "created": "System Notice {{ param }} 创建成功",
+            "updated": "System Notice {{ param }} 更新成功",
+            "deleted": "System Notice {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 System Notice {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "System Notice"
+            },
+            "content": "Content",
+            "title": "Title",
+            "sendTo": "Send To"
+        }
+    }
+}

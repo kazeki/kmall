@@ -2611,6 +2611,16 @@ generator-jhipster-elasticsearch-reindexer@^1.1.0:
     shelljs "0.5.3"
     yeoman-generator ">=0.22.2"
 
+generator-jhipster-entity-audit@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/generator-jhipster-entity-audit/-/generator-jhipster-entity-audit-3.1.0.tgz#0d2f080fea36a79a5bd59a8a812648815ae1afbc"
+  dependencies:
+    chalk "2.3.0"
+    generator-jhipster ">=4.10"
+    glob "7.1.2"
+    semver "5.4.1"
+    yeoman-generator "2.0.1"
+
 generator-jhipster@4.13.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-4.13.0.tgz#0ba9c7efe9a426fe488084a249d16d96bc39370d"
@@ -2637,7 +2647,7 @@ generator-jhipster@4.13.0:
     yeoman-environment "2.0.5"
     yeoman-generator "2.0.1"
 
-generator-jhipster@>=2.27.0:
+generator-jhipster@>=2.27.0, generator-jhipster@>=4.10:
   version "4.13.3"
   resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-4.13.3.tgz#fce551e893b7e962e49e67a68f5c6419bbcfeb94"
   dependencies:

@@ -39,8 +39,12 @@ public class ShopService {
      */
     public Shop save(Shop shop) {
         log.debug("Request to save Shop : {}", shop);
+        log.debug(">>>>>>>>>>Request to save Shop : {}", shop);
         Shop result = shopRepository.save(shop);
+        log.debug(">>>>>>>>>>Request to save Shop : {}", shop);
+        log.debug(">>>>>>>>>>Request to save result : {}", result);
         shopSearchRepository.save(result);
+        log.debug(">>>>>>>>>>Request to save result : {}", result);
         return result;
     }
 
