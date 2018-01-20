@@ -37,5 +37,6 @@
     "service": "serviceClass",
     "entityTableName": "shop",
     "jpaMetamodelFiltering": true,
-    "pagination": "pager"
+    "pagination": "pager",
+    "enableEntityAudit": true
 }

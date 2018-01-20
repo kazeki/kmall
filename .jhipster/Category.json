@@ -43,5 +43,6 @@
     "service": "serviceClass",
     "entityTableName": "category",
     "jpaMetamodelFiltering": true,
-    "pagination": "pagination"
+    "pagination": "pagination",
+    "enableEntityAudit": true
 }

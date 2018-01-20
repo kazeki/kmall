@@ -14,7 +14,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "shop")
 @Document(indexName = "shop")
-public class Shop implements Serializable {
+public class Shop extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

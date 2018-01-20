@@ -63,5 +63,6 @@
     "service": "serviceClass",
     "entityTableName": "goods",
     "jpaMetamodelFiltering": true,
-    "pagination": "infinite-scroll"
+    "pagination": "infinite-scroll",
+    "enableEntityAudit": true
 }
