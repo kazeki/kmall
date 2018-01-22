@@ -39,12 +39,8 @@ public class SystemNoticeService {
      */
     public SystemNotice save(SystemNotice systemNotice) {
         log.debug("Request to save SystemNotice : {}", systemNotice);
-        log.debug(">>>>>>Request to save SystemNotice : {} {}", systemNotice.getCreatedDate(),systemNotice.getLastModifiedDate());
-        SystemNotice result = systemNoticeRepository.save(systemNotice);
-        log.debug(">>>>>>Request to save SystemNotice : {} {}", systemNotice.getCreatedDate(),systemNotice.getLastModifiedDate());
-        log.debug(">>>>>>Request to save result : {} {}", result.getCreatedDate(),result.getLastModifiedDate());
+        SystemNotice result = systemNoticeRepository.saveAndFlush(systemNotice);
         systemNoticeSearchRepository.save(result);
-        log.debug(">>>>>>Request to save result : {} {}", result.getCreatedDate(),result.getLastModifiedDate());
         return result;
     }
 

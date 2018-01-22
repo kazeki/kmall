@@ -39,7 +39,7 @@ public class GoodsService {
      */
     public Goods save(Goods goods) {
         log.debug("Request to save Goods : {}", goods);
-        Goods result = goodsRepository.save(goods);
+        Goods result = goodsRepository.saveAndFlush(goods);
         goodsSearchRepository.save(result);
         return result;
     }
