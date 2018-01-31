@@ -1,6 +1,7 @@
 ######################
 # Project Specific
 ######################
+/out
 /build/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
