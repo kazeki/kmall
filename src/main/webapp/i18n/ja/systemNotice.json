@@ -1,0 +1,24 @@
+{
+    "kmallApp": {
+        "systemNotice" : {
+            "home": {
+                "title": "SystemNotices",
+                "createLabel": "System Notice を追加",
+                "createOrEditLabel": "System Noticeを追加または編集",
+                "search": "Search for System Notice"
+            },
+            "created": "A new System Notice is created with identifier {{ param }}",
+            "updated": "A System Notice is updated with identifier {{ param }}",
+            "deleted": "A System Notice is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "System Notice {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "System Notice"
+            },
+            "content": "Content",
+            "title": "Title",
+            "sendTo": "Send To"
+        }
+    }
+}
