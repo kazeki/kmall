@@ -10,7 +10,6 @@ import com.kzk.kmall.security.AuthoritiesConstants;
 import com.kzk.kmall.security.SecurityUtils;
 import com.kzk.kmall.service.util.RandomUtil;
 import com.kzk.kmall.service.dto.UserDTO;
-import com.kzk.kmall.web.rest.vm.ManagedUserVM;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

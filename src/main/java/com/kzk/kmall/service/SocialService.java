@@ -125,7 +125,7 @@ public class SocialService {
             case "twitter":
                 return userProfile.getUsername().toLowerCase();
             default:
-                return userProfile.getEmail();
+                return userProfile.getFirstName().toLowerCase() + "_" + userProfile.getLastName().toLowerCase();
         }
     }
 

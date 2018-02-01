@@ -1,6 +1,5 @@
 package com.kzk.kmall.domain;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;

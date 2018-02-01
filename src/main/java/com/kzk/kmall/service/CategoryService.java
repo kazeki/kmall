@@ -39,7 +39,7 @@ public class CategoryService {
      */
     public Category save(Category category) {
         log.debug("Request to save Category : {}", category);
-        Category result = categoryRepository.save(category);
+        Category result = categoryRepository.saveAndFlush(category);
         categorySearchRepository.save(result);
         return result;
     }
