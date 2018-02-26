@@ -4,7 +4,7 @@
       "packageName": "com.kzk.kmall",
       "nativeLanguage": "zh-cn"
     },
-    "jhipsterVersion": "4.13.0",
+    "jhipsterVersion": "4.14.0",
     "baseName": "kmall",
     "packageName": "com.kzk.kmall",
     "packageFolder": "com/kzk/kmall",
@@ -36,7 +36,9 @@
       "zh-cn",
       "en",
       "ja"
-    ]
+    ],
+    "cacheProvider": "no",
+    "enableHibernateCache": false
   },
   "generator-jhipster-entity-audit": {
     "auditFramework": "custom"
