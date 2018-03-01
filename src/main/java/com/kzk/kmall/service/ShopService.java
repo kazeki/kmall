@@ -5,6 +5,8 @@ import com.kzk.kmall.repository.ShopRepository;
 import com.kzk.kmall.repository.search.ShopSearchRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,6 +39,7 @@ public class ShopService {
      * @param shop the entity to save
      * @return the persisted entity
      */
+    @CachePut(value = "shop", key = "'shop:'+#shop.id")
     public Shop save(Shop shop) {
         log.debug("Request to save Shop : {}", shop);
         Shop result = shopRepository.saveAndFlush(shop);
@@ -63,6 +66,7 @@ public class ShopService {
      * @return the entity
      */
     @Transactional(readOnly = true)
+    @Cacheable(value = "shop", key = "'shop:'+#id")
     public Shop findOne(Long id) {
         log.debug("Request to get Shop : {}", id);
         return shopRepository.findOne(id);
