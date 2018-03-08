@@ -46,52 +46,34 @@ basePath: /v1
 ## For each path, you define operations (HTTP methods) that can be used to access that path.
 ## Swagger 2.0 supports get, post, put, patch, delete, head, and options.
 paths:
-  /hello:
+  /kefuHelp:
     get:
-      operationId: sayHello
+      operationId: ask
       deprecated: false #是否过时
       tags:
-        - "hello swagger"
-      description: "hello world of jhipster"
+        - "Kefu API"
+      description: "Ask a question to get help"
       produces:
         - "application/json"
       parameters: # 参数描述
         - in: query
-          name: name
+          name: question
           type: string
-          required: false
-        - in: query
-          name: role
-          type: string
-          enum: [user, poweruser, admin]
-          required: false
+          required: true
       responses:
         200:
           description: "OK"
           schema:
             $ref: "#/definitions/Msg"
           headers:
-            X-kheader:
-              type: integer
-              description: "test header"
-            content-type:
+            kmall-header:
               type: string
               description: "test header"
 definitions:
   Msg:
     type: object
     properties:
-      id:
-        type: integer
-        example: 123
-      name:
+      content:
         type: string
-        example: kazeki
-      role:
-        type: string
-        enum: [user, poweruser, admin]
-        example: admin
-    required:
-      - id
-      - name
+        example: Hello
 

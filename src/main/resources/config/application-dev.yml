@@ -136,6 +136,10 @@ jhipster:
             host: localhost
             port: 5000
             queue-size: 512
+kzk:
+    kefu:
+        pre: "My Dear "
+        suf: " Over~~"
 
 
 # ===================================================================
